@@ -1,7 +1,7 @@
 ;(function($) {
   var readmore = 'readmore',
       defaults = {
-        maxHeight: 500,
+        maxHeight: 600,
         moreLink: '<div class="readmore"><span></i></div>'
       };
 
