@@ -31,7 +31,7 @@
     openSlider: function(trigger, element, event)
     {
       event.preventDefault();
-      $(element).css({"height": "100%"});
+      $(element).css({"height": "auto"});
       $(trigger).remove();
     }
   };
