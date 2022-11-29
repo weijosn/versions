@@ -14,7 +14,7 @@
 	    <li data-target="#covers" data-slide-to="2"></li>
 	  </ol>
 	  <div class="carousel-inner border">
-	    <div class="carousel-item" th:classappend="${stat.index eq 0}" th:each="blog,stat : ${list}" th:if="${stat.index} lt 3">
+	    <div class="carousel-item" th:classappend="${stat.index eq 0?'active':''}" th:each="blog,stat : ${list}" th:if="${stat.index} lt 3">
 		  <img th:if="${#strings.isEmpty(blog.blogCoverImage)}" class="lazyload" height="120" src="/static/blog/coffee.jpg">
 		  <img th:if="${not #strings.isEmpty(blog.blogCoverImage)}" class="lazyload" height="120" th:src="${blog.blogCoverImage}">
 	      <div class="carousel-caption d-none d-md-block">
