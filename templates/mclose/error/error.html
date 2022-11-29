@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{mclose/layout.html}">
+<head>
+<title th:text="${'页面不存 - '+host.shortName}"></title>
+<meta name="description" content="该网页已被删除"/>
+</head>
+<body layout:fragment="content">
+<div role="main"><div class="container art-container mt-5">
+<div role="main">
+	<div class="cover">
+	    <h1>Bad Request <small>Error 500</small></h1>
+	    <p class="lead">该网页已被删除</p>
+	    <p>报告问题 <a href="/report_issues">New Issues</a></p>
+	</div>
+</div>
+</div>
+<div class="container">
+	<h2 class="font-weight-bold spanborder m-2"><span>相关阅读</span></h2>
+	<div class="row">
+		<div class="col-md-8 pt0">
+			<th:block th:if="${news!=null}" th:each="item,stat:${news}">
+			<div class="mb-3 p-2 d-flex align-items-center">
+				<img th:if="${#strings.isEmpty(item.blogCoverImage)}" height="80" src="/static/blog/coffee.png">
+				<img th:if="${not #strings.isEmpty(item.blogCoverImage)}" height="80" th:src="${item.blogCoverImage}">
+				<div class="pl-3">
+					<h3 class="mb-2 h6 font-weight-bold">
+					<a class="text-dark" th:href="|/blog/${item.blogId}|" th:text="${item.blogTitle}"></a>
+					</h3>
+					<div class="card-text text-muted small" th:text="${item.blogRemark}">Jake Bittle in LOVE/HATE</div>
+					<small class="text-muted" th:text="${#dates.format(item.updateTime,'yyyy-MM-dd HH:mm:ss')}">Dec 12 · 5 min read</small>
+				</div>
+			</div>
+			</th:block>
+		</div>
+		<div class="col-md-4 pl0 pt0 d-none d-md-block">
+		    <h4 class="font-italic">文章分类</h4>
+			<ul>
+			  <li th:each="item,stat:${categoryList}"><a th:href="@{'/type/' + ${item.categoryId}}" th:text="${item.categoryName}"></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>
+

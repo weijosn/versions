@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{mclose/layout.html}">
+<head>
+<title th:text="|${blogDetailVO.pageTitle}-${host.shortName}|"></title>
+<meta name="keywords" th:content="${blogDetailVO.blogTags}"/>
+<meta name="description" th:content="${#strings.length(blogDetailVO.blogRemark)>80 ? #strings.substring(blogDetailVO.blogRemark, 0, 80) : blogDetailVO.blogRemark}"/>
+<link th:href="|${host.domain}/blog/${blogDetailVO.blogId}|" rel="canonical" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weijosn/versions/readmore.js"></script>
+</head>
+<th:block layout:fragment="content">
+<div role="main" class="mt-2"> <div class="row">
+	 	<div class="col-md-8 pt0">
+			<div class="article-title p-2"><th:block th:if="${useragent.indexOf('baidu')==-1 and (useragent.indexOf('linux')!=-1 or useragent.indexOf('android')!=-1) }" th:utext="${configurations.get('ads.content')}"></th:block>
+				<h1 class="secondfont mb-3 font-weight-bold" th:text="|${blogDetailVO.pageTitle}|"></h1>
+				<small class="d-block mb-3"><a th:href="|/type/${blogDetailVO.blogCategoryId}|" th:text="${blogDetailVO.blogCategoryName}"></a> <span class="text-muted " th:text="${#dates.format(blogDetailVO.updateTime,'yyyy-MM-dd HH:mm:ss')}">A few hours ago · 5 min. read</span> <a th:if="${blogDetailVO.blogType==1}" th:href="|/blog/${blogDetailVO.blogId}/short|">简版</a> </small>
+			</div>
+	        <article class="article-post markdown-body p-2">
+			   <th:block th:if="${blogDetailVO.blogTags!=null and blogDetailVO.blogTags.indexOf('bq')!=-1 and useragent.indexOf('spider')!=-1}" th:utext="${blogDetailVO.blogContent}"></th:block>
+			   <th:block th:if="${blogDetailVO.blogTags!=null and blogDetailVO.blogTags.indexOf('bq')==-1}" th:utext="${blogDetailVO.blogContent}"></th:block>
+			</article>
+		</div>
+		<div class="col-md-4 pl0 pt0 ">
+		   <div class="panel p-2">
+				<h4 class="font-italic">最近更新</h4>
+				<div class="panel-body">
+				<ol class="mb-0"><li th:if="${news!=null}" th:each="item,stat:${news}"><a th:href="|/blog/${item.blogId}|" th:text="${item.blogTitle}"></a></li></ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    
+<div class="mb-4">
+	<h2 class="font-weight-bold spanborder m-2"><span>相关阅读</span></h2>
+	<div class="row">
+	<div class="col-md-8 pt0">
+		<th:block th:if="${blogDetailVO.relatedList!=null}" th:each="item,stat:${blogDetailVO.relatedList}">
+		<div class="mb-3 p-2 d-flex align-items-center">
+			<img th:if="${#strings.isEmpty(item.blogCoverImage)}" class="lazyload" height="80" data-src="/static/blog/coffee.png">
+			<img th:if="${not #strings.isEmpty(item.blogCoverImage)}" class="lazyload" height="80" th:attr="data-src=${item.blogCoverImage}">
+			<div class="pl-3">
+				<h3 class="mb-2 h6 font-weight-bold">
+				<a class="text-dark" th:href="|/blog/${item.blogId}|" th:text="${item.blogTitle}">Nasa's IceSat space laser makes height maps of Earth</a>
+				</h3>
+				<div class="card-text text-muted small" th:text="${item.blogRemark}">Jake Bittle in LOVE/HATE</div>
+				<small class="text-muted" th:text="${#dates.format(item.updateTime,'yyyy-MM-dd HH:mm:ss')}">Dec 12 · 5 min read</small>
+			</div>
+		</div>
+		</th:block>
+	</div>
+	<div class="col-md-4 pl0 pt0 d-none d-md-block">
+	    <h4 class="font-italic">文章分类</h4>
+		<ul>
+		  <li th:each="item,stat:${categoryList}"><a th:href="@{'/type/' + ${item.categoryId}}" th:text="${item.categoryName}"></a></li>
+		</ul>
+	</div>
+	</div>
+</div>
+<script>$('article').readmore({});</script>
+<!-- End Main -->
+</th:block>
+</html>
+

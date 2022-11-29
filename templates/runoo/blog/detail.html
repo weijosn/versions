@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{runoo/layout.html}">
+<head>
+<title th:text="|${blogDetailVO.pageTitle}-${host.shortName}|"></title>
+<meta name="keywords" th:content="${blogDetailVO.blogTags}"/>
+<meta name="description" th:content="${#strings.length(blogDetailVO.blogRemark)>80 ? #strings.substring(blogDetailVO.blogRemark, 0, 80) : blogDetailVO.blogRemark}"/>
+<link th:href="|${host.domain}/txt/${blogDetailVO.blogId}|" rel="canonical" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weijosn/versions/readmore.js"></script>
+</head>
+<th:block layout:fragment="content">
+        <!-- Page content-->
+        <div>
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a th:href="${host.domain}">首页</a></li>
+			    <li class="breadcrumb-item"><a th:href="|/type/${blogDetailVO.blogCategoryId}|" th:text="${blogDetailVO.blogCategoryName}"></a></li>
+			    <li class="breadcrumb-item active" aria-current="page" th:text="${blogDetailVO.baiduKeywords}">Data</li>
+			  </ol>
+			</nav>
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article class="article-post markdown-body mb-2">
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1" th:text="${blogDetailVO.pageTitle}">Welcome to Blog Post!</h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2" th:text="${#dates.format(blogDetailVO.updateTime,'yyyy-MM-dd HH:mm:ss')}">Posted on January 1, 2022 by Start Bootstrap</div>
+                            <a th:each="item:${blogDetailVO.tags}" class="badge text-decoration-none" href="#!" th:text="${item}">Web Design</a> <a class="badge text-decoration-none" th:href="|/type/${blogDetailVO.blogCategoryId}|" th:text="${blogDetailVO.blogCategoryName}"></a>
+                        </header>
+                        <section class="mb-5 markdown-body" th:utext="${blogDetailVO.blogContent}">
+                            <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
+                            <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
+                            <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                            <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
+                            <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
+                            <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                        </section>
+                    </article>
+                    <!-- Comments section-->
+                    <section class="mb-5">
+                    
+					<nav>
+					  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+					    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">推荐阅读</a>
+					    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">最新发布</a>
+					  </div>
+					</nav>
+					<div class="tab-content" id="nav-tabContent">
+					  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+							<th:block th:if="${blogDetailVO.relatedList!=null}" th:each="item,stat:${blogDetailVO.relatedList}">
+							<div class="mb-3 p-2 d-flex align-items-center">
+								<img th:if="${#strings.isEmpty(item.blogCoverImage)}" height="80" class="lazyload" data-src="/static/blog/coffee.png">
+								<img th:if="${not #strings.isEmpty(item.blogCoverImage)}" height="80" class="lazyload" th:attr="data-src=${item.blogCoverImage}">
+								<div class="pl-3">
+									<h3 class="mb-2 h6 font-weight-bold">
+									<a class="text-dark" th:href="|/txt/${item.blogId}|" th:text="${item.blogTitle}">Nasa's IceSat space laser makes height maps of Earth</a>
+									</h3>
+									<div class="card-text text-muted small" th:text="${item.blogRemark}">Jake Bittle in LOVE/HATE</div>
+									<small class="text-muted" th:text="${#dates.format(item.updateTime,'yyyy-MM-dd HH:mm:ss')}">Dec 12 · 5 min read</small>
+								</div>
+							</div>
+							</th:block>
+					  </div>
+					  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+						<div class="panel-body">
+							<ol class="mb-0"><li th:if="${news!=null}" th:each="item,stat:${news}"><a th:href="|/txt/${item.blogId}|" th:text="${item.blogTitle}"></a></li></ol>
+						</div>
+					  </div>
+					</div>
+                    </section>
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">搜索</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">分类</div>
+                        <div th:insert="runoo/blog/index::hostMenu()"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>$('article').readmore({});</script>
+</th:block>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{mclose/layout.html}">
+<head>
+<title th:text="|最近更新的内容-${host.shortName}|"></title>
+<meta name="keywords" th:content="${host.keywords}">
+<meta name="description" th:content="${host.description}">
+</head>
+<th:block layout:fragment="content">
+	<th:block th:fragment="segment( items )" th:each="blog,stat : ${items}"><div class="card mb-3">
+		  <img th:if="${not #strings.isEmpty(blog.blogCoverImage)}" th:src="${blog.blogCoverImage}">
+		  <div class="card-body">
+		    <h3 class="mb-1 font-weight-bold"><a class="text-dark" th:href="@{'/blog/' + ${blog.blogId}}" th:text="${blog.blogTitle}"></a></h3>
+		    <p class="card-text" th:text="${blog.blogRemark}">bulk of the card's content.</p>
+		    <small class="text-muted" th:text="${#dates.format(blog.createTime, 'yyyy-MM-dd HH:mm')}"></small>
+		  </div>
+		</div>
+	</th:block>
+	<div class="justify-content-between">
+		<h2 class="font-weight-bold spanborder"><span>最新发布</span></h2>
+		<div class="row">
+		    <th:block th:each="item,stat : ${groups}">
+			<div class="col-md-4">
+				<div th:insert="mclose/blog/random::segment(${item})"></div>
+			</div>
+			</th:block>
+		</div>
+	</div>
+	<nav aria-label="Page navigation" class="mt-5">
+	  <ul class="pagination justify-content-center">
+	    <li class="page-item" th:each="item,stat:${pages}" th:classappend="${item.currentPage?'active':''}"><a class="page-link" th:href="|/random/${item.page}|" th:text="${item.label}">Previous</a></li>
+	  </ul>
+	</nav>
+</th:block>
+</html>

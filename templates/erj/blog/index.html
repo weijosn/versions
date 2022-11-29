@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <link rel="Bookmark" href="/favicon.ico" />
+    <title>华润电力门户官网-欢迎您</title>
+    <link rel="stylesheet" type="text/css" href="/tmpl/erj/res/public.css" />
+    <link rel="stylesheet" type="text/css" href="/tmpl/erj/res/index.css" />
+    <style type="text/css">
+     /*侧边弹窗*/
+     .popUps{ position: fixed; right: 0; bottom: 78px; width: 299px; height: 303px; background: url(../images/tanon.png) no-repeat; z-index: 99;/* update  display  @mawei75*/display:none; }
+     .popClose{ position: absolute; right: 0; top: 53px; width: 33px; height: 33px; display: inline-block; }
+     .entrance{ position: absolute; left: 141px; top: 83px; width: 33px; height: 33px; display: inline-block;  }
+     .banner_des li{font-size:24px;}
+     .escTiips{
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+    select{ -webkit-appearance: none; }
+    .sub_a img{margin-right:13px;}
+    .videoDomBox{ display: none; position: fixed; z-index: 9999; background:rgba(0,0,0,0.5); width: 100%; height: 100%; overflow:hidden; }
+    .videoPosition{ width: 800px; position: absolute; top:50%; left:50%; margin-top:-225px; margin-left: -400px;} 
+    .videocon{ position: relative; width: 100%; height: 100%; }
+    .videoClose{ position: absolute; width: 50px; height: 50px; top:-30px; right: -30px; background: url(/images/2013_fancy_close.png) no-repeat 0px 0px; }
+    .jp-video-full .jp-video-play{ height: auto!important; z-index: 99999; }
+.sub_a span{width:154px;}
+#jquery_jplayer_1{background:#000;}
+
+
+
+/*****************add open window end************/
+</style>
+<script type="text/javascript" src="/tmpl/erj/res/jquery-1.11.1.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/tmpl/erj/res/video.skin.css" />
+ <link rel="stylesheet" type="text/css" href="/tmpl/erj/res/crc.skin.css" />
+  <!-- 公共 js -->
+<script type="text/javascript" charset="utf-8" src="/tmpl/erj/res/video.all.js"></script>
+
+<script type="text/javascript" src="/tmpl/erj/res/jquery.SuperSlide.js"></script>
+
+</head>
+<body>
+<!-- 新闻图片弹框 -->
+
+    <div class="crc-open-mask"></div>
+    <a href="javascript:;" class="video-icon crc-pub-window-icon">
+    </a>
+    
+    <div class="crc-pub-window" style="z-index:1006">
+      <a href="javascript:;" class="crc-pub-window-close">
+        <img src="./images/pic-close.png" />
+      </a>
+
+      <div class="crc-pub-main" style=" -ms-user-select: none;">
+        <div class="swiper-container crc-pub-window-swiper">
+            <div class="swiper-wrapper">
+            
+
+            </div>
+        </div>
+            <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev swiper-button-prev-open">  </div>
+        <div class="swiper-button-next swiper-button-next-open">  </div>
+        
+        </div>
+
+    </div>
+
+    <!-- 新闻图片弹框 end -->
+    
+    <!-- video -->
+    <div class="videoDomBox">
+        <div class="videoPosition">
+            <div class="videocon">
+                <div id="jp_container_1" class="jp-video jp-video-def" role="application" aria-label="media player">
+    <div class="jp-type-single">
+
+        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+
+        <div class="jp-video-play">
+            <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+        </div>
+
+        <div class="jp-gui">
+            <div class="jp-interface">
+
+                <div class="jp-progress">
+                    <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                    </div>
+                </div>
+
+                <div class="jp-controls-holder">
+                    <div class="jp-controls">
+                        <button class="jp-play" role="button" tabindex="0">play</button>
+                        <button class="jp-stop" role="button" tabindex="0">stop</button>
+                        <div class="jp-time-wrap">
+                            <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                            <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                        </div>
+                    </div>
+
+                    <div class="jp-toggles">
+                        <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+                    </div>
+
+                    <div class="jp-volume-controls">
+
+                        <div class="jp-volume-bar">
+                            <div class="jp-volume-bar-value">
+                                <div class="jp-volumn-dot"></div>
+                            </div>
+                        </div>
+                        <button class="jp-mute" role="button" tabindex="0">mute</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function(){
+
+
+    });
+</script>
+                <div class="videoClose"></div>
+            </div>
+        </div>
+    </div>
+    <!-- video end -->
+
+    <script type="text/javascript">
+    function GetSearch() {
+        var cont = document.getElementById("search_cont").value;
+        if (cont == "") {
+            alert("请输入关键字");
+            document.getElementById("search_cont").focus();
+        } else {    
+            cont = encodeURI(cont)
+            console.log("c", cont)
+            window.open("http://so.crc.com.cn/was5/web/search?&channelid=255247&searchword="+cont,"华润电力搜索","","");
+        }
+    }
+
+
+</script>
+<div id="header">
+        <div class="h_overlay">
+        </div>
+        <div class="header">
+          <div class="w1000">
+<style>
+/* .logo{background:url('./index/images/P020190115400278857345.png') left center no-repeat;width:289px;height:84px;}
+.logo a{ display: inline-block; width: 145px; height: 70px;} */
+.logo{
+    width: auto;
+    padding-top:18px;
+}
+.logo a img{height:50px;}
+.top_links{ margin-left: 70px;width: 480px;}
+.header_right{width:711px;}
+.nav li{ margin-left: 22px;}
+</style>
+                <h1 class="logo">
+
+                   <!--<a style="width:124px;" href="http://www.crc.com.cn/80th/" target="_blank" title="华润80年 润物耕心"></a>-->
+                   <!-- <a href="./" title="华润电力"></a> -->
+                   
+                        <a class="logo-80th" href=""><ws_sitename></ws_sitename></a>
+                
+                 <script>
+                          var logolen = $(".logo-80th").length;
+                          if (logolen == 2){
+                              $(".logo-80th:first").css("border-right","1px solid gray");
+                              $(".logo-80th:last").css("padding","6px");
+                          } else {
+                              $(".logo a img").css("height","60px");
+                          }
+                 </script>
+                
+                </h1>
+                        <!--<img src="./images/logo.png" width="270" height="70" class="png" /> -->
+
+
+
+     
+                <div class="header_right">
+
+                    <div class="top">
+                        <div class="top_links">
+                            <a href="http://www.crc.com.cn/" target="_blank">CR Home</a>
+                            <!--<a href="./hrwq/">华润网群</a> -->
+                            <a href="http://www.crc.com.cn/other/group/" target="_blank">华润网群</a>
+                            <a href="./hrdlws/">华润电力</a>
+                            <a href="http://www.crc.com.cn/crcsong/">华润之歌</a>
+                            <a href="/power_en/">English</a>
+                            <a href="#" id="StranLink">繁体版</a>
+                        </div>
+                        <div class="search">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                        <input type="text" class="search_txt" id="search_cont" />
+                                    </td>
+                                    <td style="width:26px;">
+                                        <input type="submit" onclick="GetSearch()" value="搜索" class="search_btn" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="web_other">
+                            <div class="h1">
+                                电力网群</div>
+                            <div class="sub_web">
+                                <a href="http://www.cr-power.com/" target="_blank">华润电力控股有限公司</a> 
+                           
+                            </div>
+                        </div>                    </div>
+                    <div class="nav">
+                        <ul>
+                            
+        <li><a href="./index/">首页</a></li>
+        <li><a href="./about/">关于我们</a></li>
+        <li><a href="./news/">新闻资讯</a></li>
+        <li><a href="./business/">主营业务</a></li>
+        <li><a href="./placer/">投资者关系</a></li>
+        <li><a href="./talent/">人才发展</a></li>
+        <li><a href="./duty/">社会责任</a></li>
+        <li><a href="./communicate/">信息公开</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+    <div id="body">
+      <div class="banner">
+        <!--<style>
+  #banner_title{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: 339px;
+    z-index: 300;
+  }
+  .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: bounce;
+    transform-origin: center bottom;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0)
+    }
+
+    50% {
+      transform: translateY(-10px)
+    }
+  }
+</style>
+<a id="banner_title" href="http://www.crc.com.cn/80th/" target="_blank">
+  <img src="./images/banner_title.png" />
+</a>
+<script>
+  $("#banner_title").hover(function () {
+    $(this).addClass("animated")
+  }, function () {
+    var _this = $(this);
+    var timer = setTimeout(function () {
+      _this.removeClass("animated");
+      clearTimeout(timer);
+    }, 300)
+  })
+</script>-->
+        <div class="banner_list">
+          <ul>
+            
+            <li><a target="_blank" href="#"><img src="/tmpl/erj/res/W020211209382580726989.jpg" width="1440" height="558" /></a> </li>
+            
+            <li><a target="_blank" href="#"><img src="/tmpl/erj/res/W020211209383412763631.jpg" width="1440" height="558" /></a> </li>
+            
+        </ul>
+    </div>
+    <div class="banner_overlay"> </div>
+    <div class="banner_b">
+      <div class="banner_c">
+        <ul>
+        </ul>
+    </div>
+    <div class="banner_des">
+        <!--<ul>
+          
+            <li>
+              <div class=TRS_Editor><strong>火电</strong>　　点亮新生活　温暖千万家</div>
+            </li>
+          
+            <li>
+              <div class=TRS_Editor><strong>新能源</strong>　　让地球更清新　让生活更美好</div>
+            </li>
+          
+      </ul>-->
+  </div>
+</div>
+</div>
+<div class="w1000">
+    <div class="sub">
+
+      <div class="sub_a_wrap"><a href="./business/xnyyw/" class="sub_a"><img src="/tmpl/erj/res/P020190612664533495252.png" width="139" height="136" /> <strong>可再生能源</strong> <span title="运营141座风电场、31座光伏电站、2座水电站，风电、光伏发电及水电运营权益装机容量合共15,441兆瓦，占总运营权益装机容量约32.2%，较上年提升6.3个百分点。2021年，华润电力旗下风电场、光伏电站、水电站售电量分别约为3200万、120万、172万兆瓦时。">运营141座风电场、31座光伏电站、2座水电站，风电、光伏发电及水电运营权益装机...</span></a></div>
+
+      <div class="sub_a_wrap sub_a_wrap_c"><a href="./business/hdyw/" class="sub_a sub_a_c"><img src="/tmpl/erj/res/P020190613349244124887.png" width="139" height="136" />  <strong>火电</strong> <span title="运营37座燃煤发电厂、4座燃气发电厂，火电运营权益装机容量为32,556兆瓦，占比67.8%。2021年，华润电力旗下火电厂售电量约为1.42亿兆瓦时">运营37座燃煤发电厂、4座燃气发电厂，火电运营权益装机容量为32,556兆瓦...</span> </a></div>
+
+
+      <div class="sub_a_wrap"><a href="./business/zhnyfw/" class="sub_a"><img src="/tmpl/erj/res/P020190613349344937596.png" width="139" height="136" />  <strong>售电及综合能源</strong> <span title="已组建区域售电公司25家，签约客户7,804家，入股中国15家省级电力交易中心。华润电力已运营或正在建设17个分布式能源项目，已参与投资8个储能项目，已投资8个综合能源项目。">已组建区域售电公司25家，签约客户7,804家，入股中国15家省级电力交易中心...</span> </a> </div></div>
+      <div class="news">
+          <div class="news_box">
+            <h2>
+              <a href="./news/gsdt/news1/">公司要闻</a>
+          </h2>
+          <ul>
+              
+              <li>
+                  <a target="_blank" href="./news/gsdt/news1/zhxw/202211/t20221114_629638.html" title="西一矿正式启动联合试运转">西一矿正式启动联合试运转</a>
+              </li>
+              
+              <li>
+                  <a target="_blank" href="./news/gsdt/news1/zhxw/202211/t20221109_629362.html" title="华润电力获央企ESG·先锋50指数系列荣誉">华润电力获央企ESG·先锋50指数系列荣誉</a>
+              </li>
+              
+              <li>
+                  <a target="_blank" href="./news/gsdt/news1/zhxw/202211/t20221109_629364.html" title="华润电力首个国家级科研项目获批">华润电力首个国家级科研项目获批</a>
+              </li>
+              
+              <li>
+                  <a target="_blank" href="./news/gsdt/news1/zhxw/202211/t20221103_628936.html" title="王祥明董事长到华润电力总部调研">王祥明董事长到华润电力总部调研</a>
+              </li>
+              
+              <li>
+                  <a target="_blank" href="./news/gsdt/news1/zhxw/202210/t20221031_628672.html" title="蒲圻三期项目初步设计审查会召开">蒲圻三期项目初步设计审查会召开</a>
+              </li>
+              
+          </ul>
+      </div>
+      <div class="news_box news_box_c">
+        <h2>
+          <a href="./news/gsdt/news2/">下属企业动态</a>
+      </h2>
+      <ul>
+          
+          <li>
+           <a target="_blank" href="./news/gsdt/news2/202211/t20221101_628754.html" title="阜阳公司3号机组成功通过168试运">阜阳公司3号机组成功通过168试运</a>            </li>
+           
+          <li>
+           <a target="_blank" href="./news/gsdt/news2/202211/t20221101_628753.html" title="苍南#1海上风电项目一标段风机吊装完成">苍南#1海上风电项目一标段风机吊装完成</a>            </li>
+           
+          <li>
+           <a target="_blank" href="./news/gsdt/news2/202211/t20221101_628752.html" title="华润电力与蒙阴县举行抽水蓄能电站项目签约仪式">华润电力与蒙阴县举行抽水蓄能电站项目签约仪式</a>            </li>
+           
+          <li>
+           <a target="_blank" href="./news/gsdt/news2/202211/t20221101_628751.html" title="仙桃电厂2号机组首次并网成功">仙桃电厂2号机组首次并网成功</a>            </li>
+           
+          <li>
+           <a target="_blank" href="./news/gsdt/news2/202211/t20221101_628750.html" title="禹城一期100MW项目全容量并网">禹城一期100MW项目全容量并网</a>            </li>
+           
+       </ul>
+   </div>
+   <div class="news_box">
+    <h2>
+      <a href="./news/news3/">媒体焦点</a>
+  </h2>
+  <ul>
+      
+      <li>
+          <a target="_blank" href="./news/news3/202112/t20211228_599323.html" title="华润电力首11个月附属电厂累计售电量约1.6亿兆瓦时 同比增加16.3%">华润电力首11个月附属电厂累计售电量约1.6亿兆瓦时 同比增加16.3%</a>            </li>
+          
+      <li>
+          <a target="_blank" href="./news/news3/202112/t20211228_599322.html" title="华润电力华东大区10企业集中进行碳排放配额清缴履约">华润电力华东大区10企业集中进行碳排放配额清缴履约</a>            </li>
+          
+      <li>
+          <a target="_blank" href="./news/news3/202112/t20211228_599321.html" title="华润电力全力以赴保障电力热力稳定供应">华润电力全力以赴保障电力热力稳定供应</a>            </li>
+          
+      <li>
+          <a target="_blank" href="./news/news3/202112/t20211228_599320.html" title="可再生能源占比大幅提升，华润电力计划2025年碳达峰">可再生能源占比大幅提升，华润电力计划2025年碳达峰</a>            </li>
+          
+      <li>
+          <a target="_blank" href="./news/news3/202112/t20211228_599317.html" title="投资25亿！华润电力在广东清远建设500MW渔光互补光伏电站">投资25亿！华润电力在广东清远建设500MW渔光互补光伏电站</a>            </li>
+          
+      </ul>
+  </div>
+  <div class="line1"> </div>
+  <div class="line2"> </div>
+</div>
+<div class="index_links">
+    <a href="./placer/gpxx/" class="a1">股票信息</a>
+    <a href="./dzsw/" class="a2">电子商务</a>
+    <a href="./about/qywh/rdr/" class="a3">润电人</a>
+    <a href="http://cru.crc.com.cn/" target="_blank" class="a4">华润学习与创新中心</a>
+    <a href="http://winfo.crc.com.cn/news/zhuanglan/vision/" target="_blank" class="a5">国资动态</a>
+    <a href="http://crchat.crc.com.cn/otherweb/oldissue.htm" target="_blank" class="a6">《华润》</a>
+    <a href="./duty/ehs/" class="a7">EHS管理</a><div class="index_line index_line_1"></div>
+    <div class="index_line index_line_2"></div>
+    <div class="index_line index_line_3"></div>
+    <div class="index_line index_line_4"></div>
+    <div class="index_line index_line_5"></div>
+    <div class="index_line index_line_6"></div>
+    <div class="index_line index_line_7"></div>
+</div>
+<div class="video"><a href="./index/newVide16/"><img src="/tmpl/erj/res/P020190614556037848114.png" width="189" height="100" /> <span class="video_btn png"></span></a> </div>
+<div class="clearfix"> </div>
+</div>
+
+<div class="popUps">
+    <a href="./news/ztzl/ztzl2016/2016lsgc/" class="entrance" target="_blank"><img src="/tmpl/erj/res/pop.png" /></a>
+    <a href="javascript:void(0)" class="popClose"></a>
+</div>
+
+
+</div>
+<div id="footer" class="w1000">
+        <div class="footer_l">
+            <div class="cuts">
+                <a href="./communicate/lxwm/">联系方式</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./sitemap/">网站地图</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./mzsm/">免责声明</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./ystk/">隐私条款</a>
+            </div>
+            <div class="copyright">
+                Copyright &copy; <ws_sitename></ws_sitename>&nbsp;&nbsp;<a href="https://beian.miit.gov.cn/" rel="noreferrer" target="_blank" style="color:#9b9997" id="beian"></a>&nbsp;&nbsp;技术支持：深圳市润电信息科技有限公司
+            </div>
+        </div>
+        <div class="footer_r">
+            <select class="links">
+                <option value="">友情链接</option>
+                <option value="http://www.crc.com.cn">华润集团</option>               
+                <option value="http://www.cre.com.hk">华润创业</option>               
+                <option value="http://www.crland.com.hk">华润置地</option>               
+                <option value="http://www.crcement.com">华润水泥</option>               
+                <option value="http://www.crcgas.com">华润燃气</option>               
+                <option value="http://www.crpharm.com">华润医药</option>               
+                <option value="http://www.crcapital.com.hk">华润金融</option>               
+                <option value="http://www.mee.gov.cn/">国家生态环境部</option>               
+                <option value="https://www.mem.gov.cn">国家应急管理部</option>               
+                <option value="http://www.sdpc.gov.cn/">国家发展和改革委员会</option>               
+                <option value="http://www.sasac.gov.cn">国务院国有资产监督管理委员会</option>               
+                <option value="http://www.cec.org.cn/">中国电力企业联合会</option>               
+                <option value="http://www.cpnn.com.cn/">中国电力新闻网</option>               
+            </select>
+        </div>
+    </div>
+
+<script type="text/javascript">
+ $("#win-close").on('click',function(){
+   $(this).parent().hide();
+});
+</script>
+
+
+</body>
+</html>

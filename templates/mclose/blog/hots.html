@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{mclose/layout.html}">
+<head>
+<title th:text="|热门内容排行榜-${host.shortName}|"></title>
+<meta name="keywords" th:content="${host.keywords}">
+<meta name="description" th:content="${host.description}">
+</head>
+<th:block layout:fragment="content">
+	<th:block th:fragment="segment( items )" th:each="blog,stat : ${items}">
+          <li>
+          <b class="text-muted">[<th:block th:text="${blog.blogCategoryName}"></th:block>]</b>
+          <a class="text-dark" th:href="@{'/blog/' + ${blog.blogId}}" th:text="${blog.blogTitle}"></a>
+          <small class="text-muted" th:text="${#dates.format(blog.createTime, 'yyyy-MM-dd HH:mm')}"></small>
+          </li>
+	</th:block>
+	<div class="justify-content-between">
+		<div class="row">
+		    <th:block th:each="item,stat : ${groups}">
+		    <div class="col-md-4">
+		        <h3 class="spanborder font-weight-bold" th:if="${stat.index==0}"><span>日排行</span></h3>
+			    <h3 class="spanborder font-weight-bold" th:if="${stat.index==1}"><span>周排行</span></h3>
+			    <h3 class="spanborder font-weight-bold" th:if="${stat.index==2}"><span>月排行</span></h3>
+			    <ul class="list-unstyled text-small" th:insert="mclose/blog/hots::segment(${item})"></ul>
+			</div>				
+			</th:block>
+		</div>
+	</div>
+</th:block>
+</html>
