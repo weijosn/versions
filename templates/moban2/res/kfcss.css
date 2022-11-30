@@ -1,0 +1,27 @@
+body{ margin:0; padding:0}
+.list1{height:90px;  position:absolute; overflow:hidden; z-index:9999;}
+.list1 .title{ float:left; width:24px;_margin-right:-3px; height:90px;background:url(//www.51sole.com/test/images/ecsbg1.png) right -215px ;}
+.list1 .title1{ float:left; width:24px;height:90px;background:url(//www.51sole.com/test/images/ecsbg1.png) -168px -215px;}
+.list1 .content{float:left;border:1px solid #046b9a; width:187px;_width:190px; border-left:none; border-right:none;height:88px; background:url(//www.51sole.com/test/images/ecsbg1.png) left top;  font-size:12px; color:#333; padding-right:5px;overflow:hidden}
+.list1 .content a{ color:#666; text-decoration:none}
+.list1 .content a:hover{ color:#f60; text-decoration:underline}
+
+.list2{ height:90px; position:absolute; z-index:9999;  text-align:left;  }
+.list2 .title{ float:left; width:24px;margin-right:-3px;height:90px;background:url(//www.51sole.com/test/images/ecsbg1.png) right -99px;}
+.list2 .title1{ float:left; width:24px;height:90px;background:url(//www.51sole.com/test/images/ecsbg1.png) right top;}
+.list2 .content{ float:left;border-top:1px solid #046b9a; width:190px; border-left:none; border-right:none;background:url(//www.51sole.com/test/images/ecsbg1.png) left -92px;font-size:12px; color:#333; padding-right:5px; overflow:hidden}
+
+.tc{ text-align:left;position:absolute; width:356px; height:276px; background:url(//www.51sole.com/test/images/bg.gif) no-repeat; font-size:13px; color:#333; z-index:10000;}
+.xx{float:right; background:url(//www.51sole.com/test/images/x1x.gif) no-repeat; width:18px; height:18px; margin:10px 20px 0 0}
+.xx:hover{background:url(//www.51sole.com/test/images/x1.gif) no-repeat; }
+.friend { margin-left:45px; font-size:12px;}
+.friend a{text-decoration:none; color:#F60}
+.friend a:hover{text-decoration:none; color:#F30}
+
+.xr{position:absolute; z-index:10000;}
+.xr a{ background:url(//www.51sole.com/test/images/mini_normal1.gif) no-repeat right bottom; width:100px; height:62px; z-index:10000; display:block}
+.xr a:hover { background:url(//www.51sole.com/test/images/mini_hover1.gif) no-repeat 11px bottom; width:100px; height:62px;  display:block; }
+
+.list1 .content a.anliu{background:url(//www.51sole.com/test/images/ecsbg1.png) -51px -215px ; display:block; width:75px; height:20px; line-height:20px; text-indent:3px; color:#fff}
+.list1 .content a.anliu:hover{background:url(//www.51sole.com/test/images/ecsbg1.png) -51px -242px;display:block; width:75px; height:20px; line-height:20px; text-indent:3px; color:#f00; text-decoration:none
+     }
