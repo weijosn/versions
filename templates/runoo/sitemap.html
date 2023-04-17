@@ -1,8 +1,0 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url th:each="item,stat:${blogs}">
-	<loc th:text="@{${host.domain}+'/txt/'+${item.blogId}}"></loc>
-	<priority>0.8</priority>
-	<lastmod th:text="${#dates.format(item.updateTime,'yyyy-MM-dd HH:mm:ss')}"></lastmod>
-	<changefreq>daily</changefreq>
-</url>
-</urlset>
